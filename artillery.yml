@@ -1,0 +1,11 @@
+config:
+  target: "http://localhost:3000/student"
+  phases:
+    - duration: 60
+      arrivalRate: 10
+
+scenarios:
+  - name: "Get all students"
+    flow:
+      - get:
+          url: "/"
