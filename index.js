@@ -22,11 +22,12 @@ export default redisClient;
 
 app.use(express.json());
 
-import { getAllStudents } from './controller/student-controller.js';
+import { getAllStudents, clearCache } from './controller/student-controller.js';
 
 const router = express.Router();
 
 router.get('/', getAllStudents);
+router.post('/clear', clearCache);
 
 
 

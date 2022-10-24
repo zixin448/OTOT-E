@@ -40,3 +40,12 @@ export async function getAllStudents(req, res) {
 //         return res.status(404).json({ message: "Error getting all students from database" });
 //     }
 // }
+
+export async function clearCache(req, res) {
+    try {
+        const resp = await redisClient.flushAll();
+        return res.status(200).json({ resp: resp });
+    } catch (err) {
+        return res.status(400).json({ message: "Cannot clear cache" });
+    }
+}
